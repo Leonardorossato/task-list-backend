@@ -11,6 +11,16 @@ router.get('/tasks', (req, res)=>{
     })  
 });
 
+/*router.get('/:id', async(req, res)=>{
+    try{
+        const tasks = await Tasks.findOne(req.params.id)
+        res.status(200).json(tasks)
+    }catch(error){
+        res.status(500).json(error)
+    }
+})
+*/
+
 router.post('/addTasks', (req, res)=>{
     let title = req.body.title
     let completed = req.body.completed
@@ -40,7 +50,7 @@ router.put('/updateTasks/:id', async(req, res)=>{
     }
 })
 
-router.delete('/deletedTasks/:id', async (req, res) => {
+router.delete('/deletedTasks/:id', async(req, res) => {
     try {
         await Tasks.findOneAndRemove(req.params.id)
         res.status(200).json('Task deleted successfully')
