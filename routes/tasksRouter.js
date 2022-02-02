@@ -40,4 +40,13 @@ router.put('/updateTasks/:id', async(req, res)=>{
     }
 })
 
+router.delete('/deletedTasks/:id', async (req, res) => {
+    try {
+        await Tasks.findOneAndRemove(req.params.id)
+        res.status(200).json('Task deleted successfully')
+    }catch (err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
