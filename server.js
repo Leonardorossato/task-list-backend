@@ -2,7 +2,8 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 const mongoConnection = require('./config/mongoConnection')
-const PORT = 5000 || process.env.PORT
+require('dotenv').config
+const PORT = process.env.PORT
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
