@@ -1,0 +1,9 @@
+{
+  "name": "task-list-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
