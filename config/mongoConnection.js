@@ -1,9 +1,12 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
+const mongoURL = process.env.mongoURL
 
 try {
-    mongoose.connect(
-    {useNewUrlParser: true, useCreateIndex: true, useFindAndModify: true, useUnifiedTopology: true})
-    console.log('Connection successfuly with MongoDB')
+    mongoose.connect(mongoURL,{useNewUrlParser: true, useUnifiedTopology: true}).then(()=>{
+        console.log('Connection successfuly with MongoDB')
+    })
+    
 } catch (error) {
     console.log('Something wrong with your MongoDB connection' + error)
 }
