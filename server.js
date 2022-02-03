@@ -2,6 +2,7 @@ const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
 const tasksRouter = require('./routes/tasksRouter')
+const userRoutes = require('./routes/userRoutes')
 const mongoConnection = require('./config/mongoConnection')
 require('dotenv').config
 const PORT = process.env.PORT
@@ -10,6 +11,7 @@ app.use(express.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.use('/api', tasksRouter)
+app.use('/api', userRoutes)
 
 app.mongoConnection = mongoConnection
 
