@@ -1,17 +1,26 @@
-const bodyParser = require('body-parser')
+require('rootpath')()
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+const cors = require('cors')
 const tasksRouter = require('./routes/tasksRouter')
-const userRoutes = require('./routes/userRoutes')
+const basicAuth = require('./helpers/basicAuth')
+const erroHandler = require('./helpers/erroHandler')
+const userController = require('./Controllers/usersController')
 const mongoConnection = require('./config/mongoConnection')
-require('dotenv').config
+require('dotenv').config()
 const PORT = process.env.PORT
 
 app.use(express.json())
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(cors())
+
+app.use(basicAuth);
 
 app.use('/api', tasksRouter)
-app.use('/api', userRoutes)
+app.use('/api', userController)
+
+app.use(erroHandler)
 
 app.mongoConnection = mongoConnection
 
