@@ -1,7 +1,7 @@
 const userService = require('../Controllers/userService')
 
 const basicAuth = async(req,res, next) => {
-    if(req.path === '/api/users/authenticate'){
+    if(req.path === '/api/authenticate'){
         return next()
     }
 
