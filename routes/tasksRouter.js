@@ -2,7 +2,7 @@ const express = require('express');
 const Tasks = require('../models/Tasks')
 const router = express.Router()
 
-router.get('/tasks', (req, res)=>{
+router.get('/', (req, res)=>{
     Tasks.find((err, data) => {
         if(err){
             res.status(500).json('Error to get all the tasks', err)
@@ -11,17 +11,7 @@ router.get('/tasks', (req, res)=>{
     })  
 });
 
-/*router.get('/:id', async(req, res)=>{
-    try{
-        const tasks = await Tasks.findOne(req.params.id)
-        res.status(200).json(tasks)
-    }catch(error){
-        res.status(500).json(error)
-    }
-})
-*/
-
-router.post('/addTasks', (req, res)=>{
+router.post('/tasks', (req, res)=>{
     let title = req.body.title
     let completed = req.body.completed
     let editing = req.body.editing
@@ -39,7 +29,7 @@ router.post('/addTasks', (req, res)=>{
     })
 })
 
-router.put('/updateTasks/:id', async(req, res)=>{
+router.put('/tasks/:id', async(req, res)=>{
     try {
         const updateTasks = await Tasks.findOneAndUpdate(req.params.id, {
             $set: req.body
@@ -50,7 +40,7 @@ router.put('/updateTasks/:id', async(req, res)=>{
     }
 })
 
-router.delete('/deletedTasks/:id', async(req, res) => {
+router.delete('/tasks/:id', async(req, res) => {
     try {
         await Tasks.findOneAndRemove(req.params.id)
         res.status(200).json('Task deleted successfully')
