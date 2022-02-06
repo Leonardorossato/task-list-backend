@@ -3,6 +3,7 @@ require('rootpath')()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+const sequelize = require('./config/db')
 const cors = require('cors')
 require('dotenv').config()
 const PORT = process.env.PORT
@@ -15,8 +16,11 @@ const erroHandler = require('./helpers/erroHandler')
 const userController = require('./Controllers/usersController')
 //
 
-// variable of mongoDB connection
-const mongoConnection = require('./config/mongoConnection')
+// variable of Sqlite connection
+
+sequelize.sync().then(()=>{
+    console.log('Sqlite connection is Ok')
+})
 
 //Using middleware
 app.use(express.json())
@@ -33,8 +37,8 @@ app.use('/api', userController)
 
 app.use(erroHandler)
 
-//Using mongo connectiom
-app.mongoConnection = mongoConnection
+//Using sqlite com sequelize connection
+
 //
 
 app.listen(PORT, ()=>{
