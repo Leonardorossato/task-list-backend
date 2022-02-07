@@ -22,10 +22,13 @@ router.post('/tasks', async(req, res)=>{
 
 router.put('/tasks/:id', async(req, res)=>{
     try {
-        const updateTasks = await Tasks.findOneAndUpdate(req.params.id, {
-            $set: req.body
-        }, {new: true})
-        res.status(200).json(updateTasks)
+        const tasksId = req.params.id;
+        const tasks = await Tasks.findOne({where: {id: tasksId}})
+        tasks.title = req.body.title
+        tasks.completed = req.body.completed
+        tasks.editing = req.body.editing
+        await tasks.save()
+        res.status(200).json(tasks)
     } catch (error) {
         res.status(500).json(error)    
     }
