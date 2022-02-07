@@ -1,4 +1,4 @@
-//imports of the package.json
+//imports of the libs on the package.json
 require('rootpath')()
 const express = require('express')
 const app = express()
@@ -16,8 +16,7 @@ const erroHandler = require('./helpers/erroHandler')
 const userController = require('./Controllers/usersController')
 //
 
-// variable of Sqlite connection
-
+// variable of Sqlite connection with sequelize
 sequelize.sync().then(()=>{
     console.log('Sqlite connection is Ok')
 })
@@ -30,17 +29,14 @@ app.use(cors())
 
 app.use(basicAuth);
 
-//routes
+//imports of the using routes
 app.use('/api', tasksRouter)
 app.use('/api', userController)
 //
 
 app.use(erroHandler)
 
-//Using sqlite com sequelize connection
-
-//
-
+//port
 app.listen(PORT, ()=>{
     console.log(`Server is running on the port : ${PORT}`)
 })
