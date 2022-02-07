@@ -22,12 +22,14 @@ router.post('/tasks', async(req, res)=>{
 })
 
 router.put('/tasks/:id', async (req, res)=>{
-    const taskId = req.params.id;
-    const task = await Tasks.findOne({where : {id : taskId}});
-    
-    await task.save()
-    res.status(200).json('ok')
-    
+    const taskId = req.params.id
+    const task = {title, completed, editing} = req.body
+    await Tasks.findOne({where: {id: taskId}}).then(()=>{
+        
+        res.status(200).json(task)
+    }).catch((error)=>{
+        res.status(500).json(error)
+    })
 })
 
 router.delete('/tasks/:id', async(req, res) => {
