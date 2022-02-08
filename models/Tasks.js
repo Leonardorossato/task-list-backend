@@ -11,16 +11,13 @@ Tasks.init({
        allowNull: false
     },
     title:{
-        type: DataTypes.STRING,
-        allowNull: false
+        type: DataTypes.STRING
     },
     completed:{
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+        type: DataTypes.BOOLEAN
     },
     editing:{
-        type: DataTypes.BOOLEAN,
-        allowNull: false
+        type: DataTypes.BOOLEAN
     }
 },{
     sequelize,
