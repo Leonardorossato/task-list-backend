@@ -26,7 +26,7 @@ router.get('/tasks/:id', async(req, res)=>{
 router.post('/tasks', async(req, res)=>{
     try {
         const tasks = await Tasks.create(req.body)
-        res.status(201).json('Task created : '+tasks)
+        res.status(201).json(tasks)
     }catch (error) {
         res.status(400).json(error)
     }
