@@ -1,10 +1,33 @@
-Bom dia Leo, tudo bem? Segue a recomendação
+Getting Started with Node.js, Sequelize, Express, and Sqlite3
+This project was bootstrapped with Node.js
 
-O objetivo é criar uma API em NodeJS com Express com as seguintes funcionalidades
-- Um endpoint GET para retornar as tarefas
-- Um endopoint POST para criar uma tarefa
-- Um endpoint PUT para atualizar uma tarefa
-- Um endpoint DELETE para remover uma tarefa
+Available Scripts
+In the project directory, you can run:
 
-É importante que as tarefas sejam salvas em um determinado banco de dados, de preferência o SQLite.
-Além disso, as APIs devem estar protegidas com uma autenticação básica (Basic auth) do próprio faramework.
+yarn server
+Runs the app server mode.
+Use de postman api to test all urls.
+
+About the .env
+Please if you want security use this dependencie dotenv and create a new file call.env 
+with your urls, Ports.
+
+!-------------------------------- 
+
+Installation Steps:
+
+- Clone the repository:
+git clone repo_url
+
+2.Install npm modules
+yarn install
+
+Built with
+
+Technologies used in the project:
+
+Node.js
+Express
+Sequelize - Modelo e configuração com a conexão com o slite
+Sqilite3 - Banco de dados
+
