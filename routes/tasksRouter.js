@@ -3,7 +3,7 @@ const router = express.Router()
 const Tasks = require('../models/Tasks')
 
 //get all tasks
-router.get('/', async(req, res)=>{
+router.get('/tasks', async(req, res)=>{
     try {
         const tasks = await Tasks.findAll()
         res.status(200).json(tasks)
