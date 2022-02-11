@@ -16,6 +16,8 @@
     "express": "^4.17.2",
     "rootpath": "^0.1.2",
     "sequelize": "^6.15.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "swagger": "^0.7.5",
+    "swagger-ui-express": "^4.3.0"
   }
 }
