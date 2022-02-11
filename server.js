@@ -11,7 +11,8 @@ const PORT = process.env.PORT
 
 //
 const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger.json')
+const swaggerFile = require('./swagger/swagger_output.json')
+//
 
 //Imports of the routes and controllers
 const tasksRouter = require('./routes/tasksRouter')
@@ -23,13 +24,14 @@ const userController = require('./Controllers/usersController')
 // variable of Sqlite connection with sequelize
 sequelize.sync().then(()=>{
     console.log('Sqlite connection is Ok')
+}).catch(()=>{
+    console.log('Sqlite connection is Failed')
 })
 
 //Using middleware
 app.use(express.json())
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(bodyParser.urlencoded({extended: false}))
-app.use('/doc',swaggerUi.serve, swaggerUi.setup(swaggerFile))
-
 app.use(cors())
 //
 
@@ -44,5 +46,5 @@ app.use(erroHandler)
 
 //port
 app.listen(PORT, ()=>{
-    console.log(`Server is running on the port : ${PORT}`)
+    console.log(`Server is running on the port : ${PORT}/doc`)
 })
