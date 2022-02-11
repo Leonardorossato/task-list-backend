@@ -28,7 +28,7 @@ sequelize.sync().then(()=>{
 //Using middleware
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended: false}))
-//app.use(swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/doc',swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(cors())
 //
