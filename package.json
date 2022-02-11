@@ -18,6 +18,7 @@
     "sequelize": "^6.15.0",
     "sqlite3": "^5.0.2",
     "swagger": "^0.7.5",
+    "swagger-autogen": "^2.18.8",
     "swagger-ui-express": "^4.3.0"
   }
 }
