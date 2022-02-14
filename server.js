@@ -5,14 +5,13 @@ const app = express()
 const bodyParser = require('body-parser')
 const sequelize = require('./config/db')
 const cors = require('cors')
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger/swagger_output.json')
 require('dotenv').config()
 const PORT = process.env.PORT
 /**/
 
-//
-const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger/swagger_output.json')
-//
+
 
 //Imports of the routes and controllers
 const tasksRouter = require('./routes/tasksRouter')
@@ -31,7 +30,6 @@ sequelize.sync().then(()=>{
 //Using middleware
 app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
-app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 //
 
