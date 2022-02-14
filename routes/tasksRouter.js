@@ -4,6 +4,7 @@ const Tasks = require('../models/Tasks')
 
 //get all tasks
 router.get('/tasks', async(req, res)=>{
+    
     try {
         const tasks = await Tasks.findAll()
         res.status(200).json(tasks)
@@ -24,6 +25,30 @@ router.get('/tasks/:id', async(req, res)=>{
 })
 
 router.post('/tasks', async(req, res)=>{
+    /*
+    #swagger.description = 'Route for create a task.'
+    */
+
+    /*
+    #swagger.parameters['title'] = {
+        type: 'string',
+        required: true,
+        in: 'body',
+    }
+
+    #swagger.parameters['completed'] = {
+    type: 'boolean',
+    required: true,
+    in: 'body',
+    }
+
+    #swagger.parameters['editing'] = {
+    type: 'boolean',
+    required: true,
+    in: 'body',
+    }
+    */
+
     try {
         const tasks = await Tasks.create(req.body)
         res.status(201).json(tasks)
