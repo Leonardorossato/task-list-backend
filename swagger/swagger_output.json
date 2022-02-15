@@ -42,30 +42,23 @@
             "type": "string"
           },
           {
-            "name": "title",
-            "required": true,
+            "name": "task",
             "in": "body",
             "schema": {
               "type": "object",
-              "properties": {}
-            }
-          },
-          {
-            "name": "completed",
-            "required": true,
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {}
-            }
-          },
-          {
-            "name": "editing",
-            "required": true,
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {}
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "completed": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "editing": {
+                  "type": "boolean",
+                  "default": false
+                }
+              }
             }
           }
         ],
