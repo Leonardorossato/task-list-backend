@@ -6,15 +6,12 @@ class Tasks extends Model {}
 Tasks.init({
     title:{
         type: DataTypes.STRING,
-        allowNull: false,
     },
     completed:{
         type: DataTypes.BOOLEAN,
-        allowNull: false,
     },
     editing:{
         type: DataTypes.BOOLEAN,
-        allowNull: false,
     }
 },{
     sequelize,
