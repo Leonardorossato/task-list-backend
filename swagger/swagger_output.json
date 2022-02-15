@@ -34,32 +34,43 @@
         }
       },
       "post": {
-        "description": "create a new task",
+        "description": "Route for create a task.",
         "parameters": [
           {
             "name": "authorization",
             "in": "header",
             "type": "string"
-          },{
+          },
+          {
             "name": "title",
+            "required": false,
             "in": "body",
-            "type": "string"
-          },{
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          {
             "name": "completed",
+            "required": false,
             "in": "body",
-            "type": "boolean",
-            "required": true
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           },
           {
             "name": "editing",
+            "required": false,
             "in": "body",
-            "type": "boolean",
-            "required": true
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
           }
         ],
         "responses": {
           "201": {
-            
             "description": "Created"
           },
           "400": {
