@@ -2,7 +2,6 @@
 require('rootpath')()
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
 const sequelize = require('./config/db')
 const cors = require('cors')
 const swaggerUi = require('swagger-ui-express')

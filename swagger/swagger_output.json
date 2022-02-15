@@ -43,7 +43,7 @@
           },
           {
             "name": "title",
-            "required": false,
+            "required": true,
             "in": "body",
             "schema": {
               "type": "object",
@@ -52,7 +52,7 @@
           },
           {
             "name": "completed",
-            "required": false,
+            "required": true,
             "in": "body",
             "schema": {
               "type": "object",
@@ -61,7 +61,7 @@
           },
           {
             "name": "editing",
-            "required": false,
+            "required": true,
             "in": "body",
             "schema": {
               "type": "object",
