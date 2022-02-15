@@ -4,14 +4,23 @@ const sequelize = require('../config/db')
 class Tasks extends Model {}
 
 Tasks.init({
+    id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true,
+    },  
     title:{
-        type: DataTypes.STRING
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     completed:{
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
     },
     editing:{
-        type: DataTypes.BOOLEAN
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
     }
 },{
     sequelize,
